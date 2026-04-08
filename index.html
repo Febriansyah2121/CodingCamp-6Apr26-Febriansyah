@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="id" data-theme="dark">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Life Dashboard</title>
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+  <!-- Header: Greeting & Clock -->
+  <header class="header">
+    <div class="greeting-section">
+      <div class="clock" id="clock">00:00:00</div>
+      <div class="date" id="date"></div>
+      <div class="greeting" id="greeting"></div>
+    </div>
+    <div class="header-controls">
+      <button class="btn-icon" id="themeToggle" title="Toggle tema">🌙</button>
+      <button class="btn-icon" id="editNameBtn" title="Ubah nama">✏️</button>
+    </div>
+  </header>
+
+  <!-- Name Modal -->
+  <div class="modal-overlay" id="nameModal">
+    <div class="modal">
+      <h3>Masukkan Nama Anda</h3>
+      <input type="text" id="nameInput" placeholder="Nama kamu..." maxlength="30" />
+      <div class="modal-actions">
+        <button class="btn btn-secondary" id="cancelName">Batal</button>
+        <button class="btn btn-primary" id="saveName">Simpan</button>
+      </div>
+    </div>
+  </div>
+
+  <main class="dashboard">
+    <!-- Focus Timer -->
+    <section class="card timer-card">
+      <h2 class="card-title">⏱ Pengatur Waktu Fokus</h2>
+      <div class="timer-display" id="timerDisplay">25:00</div>
+      <div class="timer-label" id="timerLabel">Siap untuk fokus</div>
+      <div class="timer-controls">
+        <button class="btn btn-primary" id="timerStart">▶ Mulai</button>
+        <button class="btn btn-secondary" id="timerStop">⏸ Berhenti</button>
+        <button class="btn btn-ghost" id="timerReset">↺ Atur Ulang</button>
+      </div>
+    </section>
+
+    <!-- To-Do List -->
+    <section class="card todo-card">
+      <h2 class="card-title">📝 Daftar Tugas</h2>
+      <div class="todo-toolbar">
+        <input type="text" id="todoInput" placeholder="Tambah tugas baru..." maxlength="100" />
+        <button class="btn btn-primary" id="addTodo">+ Tambah</button>
+      </div>
+      <div class="todo-filters">
+        <button class="filter-btn active" data-filter="all">Semua</button>
+        <button class="filter-btn" data-filter="active">Aktif</button>
+        <button class="filter-btn" data-filter="done">Selesai</button>
+        <select id="sortSelect" class="sort-select">
+          <option value="newest">Terbaru</option>
+          <option value="oldest">Terlama</option>
+          <option value="az">A–Z</option>
+          <option value="za">Z–A</option>
+          <option value="done-last">Selesai Terakhir</option>
+        </select>
+      </div>
+      <ul class="todo-list" id="todoList"></ul>
+      <div class="todo-empty" id="todoEmpty">Belum ada tugas. Yuk tambahkan!</div>
+    </section>
+
+    <!-- Quick Links -->
+    <section class="card links-card">
+      <h2 class="card-title">🔗 Tautan Cepat</h2>
+      <div class="links-add">
+        <input type="text" id="linkName" placeholder="Nama situs..." maxlength="20" />
+        <input type="url" id="linkUrl" placeholder="https://..." />
+        <button class="btn btn-primary" id="addLink">+ Tambah</button>
+      </div>
+      <div class="links-grid" id="linksGrid"></div>
+      <div class="todo-empty" id="linksEmpty">Belum ada tautan. Tambahkan situs favoritmu!</div>
+    </section>
+  </main>
+
+  <script src="js/app.js"></script>
+</body>
+</html>
